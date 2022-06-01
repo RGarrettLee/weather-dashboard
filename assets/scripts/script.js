@@ -90,7 +90,7 @@ function updateOutlook() { // make a request to the API to update the 5 day outl
                 head.addClass('card-header');
 
                 img.attr('src', `https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@4x.png`)
-                temp.text(`Temp: ${data.list[i].main.temp}`);
+                temp.text(`Temp: ${data.list[i].main.temp} ${unit}`);
                 wind.text(`Wind: ${data.list[i].wind.speed} ${measurement}`);
                 humidity.text(`Humidity: ${data.list[i].main.humidity}%`)
 
