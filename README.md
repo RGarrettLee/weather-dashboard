@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-## The one stop shop for searching up the weather needs
+## The one stop shop for searching up your weather needs
 
 This site allows you to search up the weather for any city in the world and getting the current forecast, as well as a 5 day outlook. We offer the option to choose between your preferred unit of measurement and the default is **Celsius**
 
