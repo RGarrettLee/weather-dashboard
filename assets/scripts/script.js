@@ -16,7 +16,7 @@ let history = []; // array to hold search history
 loadData(); // load saved data
 
 function getLocation() { // make a request to the API to get information about the city searched
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`)
         .then(function(response) {
             return response.json();
         })
@@ -32,7 +32,7 @@ function getLocation() { // make a request to the API to get information about t
 }
 
 function updateCurrentWeather() { // make a request to the API to update the weather card
-    fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=hourly,daily&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=hourly,daily&appid=${apiKey}`)
         .then(function(response) {
             return response.json();
         })
@@ -67,7 +67,7 @@ function updateCurrentWeather() { // make a request to the API to update the wea
 }
 
 function updateOutlook() { // make a request to the API to update the 5 day outlook data
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`)
         .then(function(response) {
             return response.json();
         })
