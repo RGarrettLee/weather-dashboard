@@ -19,27 +19,27 @@
             <p>Check out the weather in any city and a 5 day outlook!</p>
         </header>
         
-        <main class="flex-row col-12 justify-space-between m-3">
-            <section class="row m-3">
-                <aside class="card p-3">
-                    <h3 class="card-header text-uppercase">Search a City</h3>
-                    <input name="city" id="city" placeholder="Enter City..." form-input" type="text" autofocus="true">
-                    <button type="submit" class="btn btn-primary" id="search">Search</button>
-                    <button type="button" class="btn btn-success" id="units" data-unit="Metric">Unit: Metric</button>
-                </aside>
-
-                <section class="col-12 col-md-8 card" id="cityShowing">
-                    
-                </section>
-
-                <section>
-
-                </section>
+        <main class="container-fluid">
+            <section class="row"> <!-- Search bar + history -->
+                <article class="col-3">
+                    <section class="card">
+                        <h3 class="card-header text-uppercase">Search a City</h3>
+                        <input name="city" id="city" placeholder="Enter City..." form-input" type="text" autofocus="true">
+                        <button type="submit" class="btn btn-primary" id="search">Search</button>
+                        <button type="button" class="btn btn-success" id="units" data-unit="Metric"></button>
+                    </section>
+                    <section class="card" id="history">
+                        <h2 class="card-header">History: <button class="btn btn-secondary" id="clearHistory">Clear History</button></h2>
+                    </section>
+                </article>
+                <article class="col-9">
+                    <section class="card p-3 d-block" id="cityShowing"></section>
+                </article>
             </section>
-            <section class="card">
-                <h3 class="card-header text-uppercase">5 Day Outlook</h3>
-                <section class="row p-3" id="outlook">
-
+            <section class="row"> <!-- forcast + 5 day outlook -->
+                <section class="card">
+                    <h3 class="card-header text-uppercase">5 Day Outlook</h3>
+                    <section class="row p-3" id="outlook"></section>
                 </section>
             </section>
         </main>
