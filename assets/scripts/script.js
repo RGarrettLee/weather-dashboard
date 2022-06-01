@@ -72,8 +72,10 @@ function updateOutlook() { // make a request to the API to update the 5 day outl
             return response.json();
         })
         .then(function(data) {
+            console.log(data);
             outlook.empty();
-            for (let i = 0; i < data.list.length; i+=8) {
+            let dayup = 1;
+            for (let i = 7; i < data.list.length; i+=8) {
                 let card = $('<section>'); // create elements to generate data
                 card.addClass('card p-3');
                 let head = $('<h2>');
@@ -82,7 +84,8 @@ function updateOutlook() { // make a request to the API to update the 5 day outl
                 let wind = $('<h5>');
                 let humidity = $('<h5>');
 
-                head.text(`${data.list[i].dt_txt}`);
+                //head.text(`${data.list[i].dt_txt}`);
+                head.text(moment().add(dayup, 'days').format('D/M/YYYY'))
 
                 head.addClass('card-header');
 
@@ -98,6 +101,7 @@ function updateOutlook() { // make a request to the API to update the 5 day outl
                 card.append(humidity);
 
                 outlook.append(card);
+                dayup++;
             }
         });
 }
@@ -129,7 +133,7 @@ function loadData() { // load all saved data and update data
             measurement = 'KMH';
         }
     }
-    
+
     units = 'Metric';
 
     getLocation(); // search location 
