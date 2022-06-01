@@ -55,6 +55,14 @@ function updateCurrentWeather() { // make a request to the API to update the wea
             wind.text(`Wind: ${data.current.wind_speed} ${measurement}`);
             humidity.text(`Humidity: ${data.current.humidity}%`);
             uv.text(`UV Index: ${data.current.uvi}%`);
+    
+            if (parseInt(data.current.uvi) <= 2) {
+                uv.attr('style', 'color: green');
+            } else if (parseInt(data.current.uvi) >= 3) {
+                uv.attr('style', 'color: orange');
+            } else if (parseInt(data.current.uvi) >= 6) {
+                uv.attr('style', 'color: red');
+            }
 
 
             currentWeather.append(head);
@@ -84,7 +92,6 @@ function updateOutlook() { // make a request to the API to update the 5 day outl
                 let wind = $('<h5>');
                 let humidity = $('<h5>');
 
-                //head.text(`${data.list[i].dt_txt}`);
                 head.text(moment().add(dayup, 'days').format('D/M/YYYY'))
 
                 head.addClass('card-header');
