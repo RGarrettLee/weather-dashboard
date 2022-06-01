@@ -116,17 +116,21 @@ function addHistory() { // add a snewly searched city to the search history if i
 function loadData() { // load all saved data and update data
     units = localStorage.getItem('units'); // load users unit preferences
 
-    unitsBtn.text(`Unit: ${units}`);
+    if (units !== null) {
+        unitsBtn.text(`Unit: ${units}`);
 
-    if (units === 'Imperial') {
-        unitsBtn.attr('data-unit', 'Imperial');
-        unit = 'F';
-        measurement = 'MPH';
-    } else {
-        unitsBtn.attr('data-unit', 'Metric');
-        unit = 'C';
-        measurement = 'KMH';
+        if (units === 'Imperial') {
+            unitsBtn.attr('data-unit', 'Imperial');
+            unit = 'F';
+            measurement = 'MPH';
+        } else {
+            unitsBtn.attr('data-unit', 'Metric');
+            unit = 'C';
+            measurement = 'KMH';
+        }
     }
+    
+    units = 'Metric';
 
     getLocation(); // search location 
 
